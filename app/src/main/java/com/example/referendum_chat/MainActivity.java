@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,12 +22,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mFindOneOOneButton.setOnClickListener(this);
+        mFindResourceButton.setOnClickListener(this);
+        mFindRefeButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
         if(v == mFindOneOOneButton) {
-         //
+            Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();
         }
+        else if (v == mFindResourceButton) {Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();}
+        else if (v == mFindRefeButton) {Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();}
     }
 }
