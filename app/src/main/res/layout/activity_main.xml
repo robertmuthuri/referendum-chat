@@ -9,7 +9,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:text="Referendum Chat"
-        android:textColor="@color/primary_text"/>
+        android:textColor="@color/primary_text"
+        android:textSize="40sp"/>
 
     <Button
         android:id="@+id/101Button"
