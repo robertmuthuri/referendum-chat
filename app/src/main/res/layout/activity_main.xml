@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/101Button"
+        android:id="@+id/oneOOneButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/101Button"
+        android:layout_below="@+id/oneOOneButton"
         android:text="Find a resource Center near you!"
         android:textColor="@color/primary_text"
         android:backgroundTint="@color/primary_light" />
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/home_background"/>
+        android:src="@drawable/home_background" />
 
     <TextView
         android:layout_width="wrap_content"
