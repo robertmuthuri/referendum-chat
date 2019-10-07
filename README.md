@@ -1,5 +1,5 @@
 # Referendum Chat Version 1.0
-![](drawable/refe.png)
+![](res/drawable/refe.png)
 #### By **Robert Muthuri**
 https://github.com/robertmuthuri/referendum-chat
 
