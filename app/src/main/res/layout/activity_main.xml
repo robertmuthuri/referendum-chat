@@ -46,8 +46,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:text="Referendum Chat"
+        android:fontFamily="@font/bad_script"
+        android:text="My Referendum"
         android:textColor="@color/primary_text"
-        android:textSize="40sp"/>
+        android:textSize="50sp" />
 
 </RelativeLayout>
