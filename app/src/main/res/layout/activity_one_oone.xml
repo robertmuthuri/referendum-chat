@@ -5,6 +5,7 @@
     android:background="@drawable/gradient1">
 
     <TextView
+        android:id="@+id/oneOOneHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -14,5 +15,14 @@
         android:text="Referendum 101!"
         android:textColor="@color/primary_text"
         android:textSize="40sp" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/oneOOneHeader"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
 
 </RelativeLayout>
