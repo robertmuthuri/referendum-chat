@@ -27,4 +27,13 @@
         android:layout_below="@+id/101Button"
         android:text="Find a resource Center near you!" />
 
+    <Button
+        android:id="@+id/RefeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/findResourceButton"
+        android:text="Chat with Refe!" />
+
 </RelativeLayout>
