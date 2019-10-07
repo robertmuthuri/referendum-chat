@@ -16,9 +16,9 @@ import butterknife.ButterKnife;
 public class OneOOneActivity extends AppCompatActivity {
     @BindView(R.id.listView) ListView mListView;
 
-    private String[] basics = new String[]{ "a general vote by the electorate on a single political question which has been referred to them for a direct decision.", "Topics: in Kenya a referendum is limited to the following:", "The supremacy of the Constitution, The territory of Kenya, The sovereignty of the people, The national values and principles of governance, The bill of rights, The term of office of the President, The independence of the judiciary, the commissions, and independent offices in the Constitution, The objects, principles and structure of devolved government, and Amendment of the Constitution", " a) A bill introduced in either House of Parliament", " b) A popular initiative signed by at least one million registered voters.", " a) At least 20% of the registered voters in at least half of the counties vote in the referendum, and b) The amendment is supported by a simple majority of the citizens voting in a referendum",};
+    private String[] basics = new String[]{ "A referendum is general vote by the electorate on a single political question which has been referred to them for a direct decision.\n", "The supremacy of the Constitution\n\nThe territory of Kenya \n\nThe sovereignty of the people\n\nThe national values and principles of governance\n\nThe bill of rights\n\nThe term of office of the President\n\nThe independence of the Judiciary, the commissions, and independent offices in the Constitution\n\nThe objects, principles and structure of devolved government, and Amendment of the Constitution \n", "a) A bill introduced in either House of Parliament\n\nb) A popular initiative signed by at least one million registered voters.\n", "\na) At least 20% of the registered voters in at least half of the counties vote in the referendum, and\n\nb) The amendment is supported by a simple majority of the citizens voting in a referendum\n"};
 
-    private String[] headers = new String[] {"Definition:", "Topics for which a referendum can be held:", "Proposal - an amendment to the Constitution may be proposed by: ", "Approval: A referendum is approved by: "}
+    private String[] headers = new String[] {"DEFINITION:\n", "REFERENDUM TOPICS:\n", "WHO CAN PROPOSE A REFERENDUM:\n", "APPROVAL CRITERIA:\n"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,8 @@ public class OneOOneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_one_oone);
         ButterKnife.bind(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, basics);
+//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, basics);
+        MyOneOOneArrayAdapter adapter = new MyOneOOneArrayAdapter(this, android.R.layout.simple_list_item_1, headers, basics);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

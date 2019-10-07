@@ -8,8 +8,8 @@ public class MyOneOOneArrayAdapter extends ArrayAdapter {
     private String[] mBasics;
     private String[] mHeaders;
 
-    public myOneOOneArrayAdapter(Context mContext, int resource, String[] mBasics, String[] mHeaders){
-        super(mContext, resource) ;
+    public MyOneOOneArrayAdapter(Context mContext, int resource, String[] mHeaders, String[] mBasics){
+        super(mContext, resource);
         this.mContext = mContext;
         this.mBasics = mBasics;
         this.mHeaders = mHeaders;
@@ -23,6 +23,8 @@ public class MyOneOOneArrayAdapter extends ArrayAdapter {
     }
 
     @Override
-    public int getCount() {return mBasics.length}
+    public int getCount() {
+        return mHeaders.length;
+    }
 
 }
