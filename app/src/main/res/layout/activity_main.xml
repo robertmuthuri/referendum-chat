@@ -11,10 +11,20 @@
         android:text="Referendum Chat"
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/101Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
         android:text="Referendum 101" />
+
+    <Button
+        android:id="@+id/findResourceButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/101Button"
+        android:text="Find a resource Center near you!" />
+
 </RelativeLayout>
