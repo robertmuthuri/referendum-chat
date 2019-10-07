@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".OneOOneActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.referendum_chat.MainActivity">
+            </meta-data>
 
         </activity>
         <activity android:name=".MainActivity">
