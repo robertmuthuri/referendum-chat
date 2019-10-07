@@ -1,6 +1,8 @@
 # Referendum Chat Version 1.0
+![](drawable/refe.png)
 #### By **Robert Muthuri**
 https://github.com/robertmuthuri/referendum-chat
+
 ## Description
 This is a project to create an app to aid the civic education during the upcoming Kenyan referendum anticipated for 2020.
 
