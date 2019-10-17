@@ -5,7 +5,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface GeoDBApiInterface {
-    @GET("geo/cities?countryIds=ke&limit=10&minPopulation=65000")
+    @GET("geo/cities?countryIds=ke&limit=10&minPopulation=65000&sort=-population")
 
     Call<GeoDBCitiesSearchResponse> getCities(
             @Query("countryIds") String countryIds,
