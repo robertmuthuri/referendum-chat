@@ -13,7 +13,24 @@
 .externalNativeBuild
 .cxx
 
+<<<<<<< HEAD
 /gradle.properties
 /settings.gradle
 /gradlew
 /gradlew.bat
+=======
+# Java and Gradle #
+############
+build/
+.gradle/
+out/
+out
+.gradle
+gradle
+gradlew.bat
+gradlew
+settings.gradle
+pull.sh
+.gradle.properties
+gradle.properties
+>>>>>>> b89150845960be1fde09813a2eac4374bcc62dc3
