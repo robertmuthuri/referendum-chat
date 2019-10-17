@@ -8,6 +8,7 @@ import android.widget.Spinner;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
 
 public class ResourceCenterActivity extends AppCompatActivity {
     @BindView(R.id.resourceSpinner) Spinner mResourceSpinner;
@@ -25,5 +26,10 @@ public class ResourceCenterActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         mResourceSpinner.setAdapter(adapter);
+
+        GeoDBApiInterface client = GeoDBClient.getClient();
+
+//        Call<GeoDBCitiesSearchResponse> call = client.getCities(country, "term");
+
     }
 }
