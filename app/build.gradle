@@ -18,6 +18,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        .each {it.buildConfigField 'String', 'GeoDB_API_KEY', x_rapidapi_key}
     }
 }
 
