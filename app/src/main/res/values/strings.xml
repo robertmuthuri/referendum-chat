@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Referendum-Chat</string>
 
+    <string-array name="kenyan-towns-array">
+        <item>Nairobi</item>
+        <item>Mombasa</item>
+        <item>Kisumu</item>
+        <item>Eldoret</item>
+        <item>Meru</item>
+        <item>Nyeri</item>
+        <item>Marsabit</item>
+    </string-array>
+
 </resources>
