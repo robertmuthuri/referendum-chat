@@ -34,7 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, OneOOneActivity.class);
             startActivity(intent);
         }
-        else if (v == mFindResourceButton) {Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();}
+        else if (v == mFindResourceButton) {
+            Intent intent = new Intent(MainActivity.this, ResourceCenterActivity.class);
+            startActivity(intent);
+        }
         else if (v == mFindRefeButton) {Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();}
     }
 }
