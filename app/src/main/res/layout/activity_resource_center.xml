@@ -7,12 +7,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:background="#ffffff">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@id/resourceSpinner"-->
+<!--        android:background="#ffffff"-->
+<!--        android:orientation="vertical"-->
+<!--        android:padding="10dp">-->
 
         <ImageView
             android:id="@+id/centerImageView"
@@ -20,25 +21,26 @@
             android:layout_height="100dp"
             android:layout_above="@+id/centerTextView"
             android:layout_centerInParent="false"
-            android:layout_marginBottom="-73dp"
             android:scaleType="centerCrop"
             android:src="@drawable/home_background" />
+
         <TextView
-            android:text="Center Name"
             android:id="@+id/centerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:text="Center Name"
             android:textColor="@color/colorPrimary"
-            android:layout_centerInParent="true"/>
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
         <TextView
-            android:text="Location"
-            android:id="@+id/locationTextView"
+            android:id="@+id/centerLocationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/centerTextView"
-            android:textStyle="italic"
-            android:layout_centerInParent="true"/>
-    </RelativeLayout>
+            android:layout_centerInParent="true"
+            android:text="Location"
+            android:textStyle="italic" />
+<!--    </LinearLayout>-->
 </RelativeLayout>
