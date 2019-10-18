@@ -3,6 +3,7 @@ package com.example.referendum_chat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -34,8 +35,12 @@ public class ResourceCenterActivity extends AppCompatActivity {
 //        mResourceSpinner.setAdapter(adapter);
 
         GeoDBApiInterface client = GeoDBClient.getClient();
-        String country = "countryIds";
-        Call<GeoDBCitiesSearchResponse> call = client.getCities(country, "ke");
+        String countryIds = "ke";
+        int limit = 10;
+        int minPopulation = 65000;
+        String sort = "-population";
+        Call<GeoDBCitiesSearchResponse> call = client.getCities(countryIds, limit, minPopulation, sort);
+        Log.e("CALL", "I have: "+call.toString() );
 
         call.enqueue(new Callback<GeoDBCitiesSearchResponse>() {
             @Override
