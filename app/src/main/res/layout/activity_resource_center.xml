@@ -1,46 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="ui.ResourceCenterActivity">
 
     <Spinner
         android:id="@+id/resourceSpinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_below="@id/resourceSpinner"-->
-<!--        android:background="#ffffff"-->
-<!--        android:orientation="vertical"-->
-<!--        android:padding="10dp">-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resourceSpinner"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"/>
 
-        <ImageView
-            android:id="@+id/centerImageView"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:layout_above="@+id/centerTextView"
-            android:layout_centerInParent="false"
-            android:scaleType="centerCrop"
-            android:src="@drawable/home_background" />
 
-        <TextView
-            android:id="@+id/centerTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Center Name"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/centerLocationTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/centerTextView"
-            android:layout_centerInParent="true"
-            android:text="Location"
-            android:textStyle="italic" />
-<!--    </LinearLayout>-->
 </RelativeLayout>

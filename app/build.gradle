@@ -47,4 +47,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     // Rapid API
     implementation 'com.rapidapi:rapidconnect-android:0.1'
+    // Recycler view
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
