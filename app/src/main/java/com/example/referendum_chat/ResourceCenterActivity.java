@@ -26,9 +26,9 @@ import retrofit2.Response;
 public class ResourceCenterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     @BindView(R.id.resourceSpinner) Spinner mResourceSpinner;
 //    @BindView(R.id.kenyanCitiesListView) ListView mKenyanCitiesListView;
-    @BindView(R.id.centerImageView) ImageView mCenterImageView;
-    @BindView(R.id.centerTextView) TextView mCenterTextView;
-    @BindView(R.id.centerLocationTextView) TextView mCenterLocationTextView;
+    @BindView(R.id.rcImageView) ImageView mCenterImageView;
+    @BindView(R.id.rcNameTextView) TextView mCenterTextView;
+    @BindView(R.id.rcLocationTextView) TextView mCenterLocationTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

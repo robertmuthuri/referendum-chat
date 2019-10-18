@@ -26,7 +26,7 @@
             android:textColor="@color/colorPrimary"/>
         <TextView
             android:text="Location"
-            android:id="@+id/recLocationTextView"
+            android:id="@+id/rcLocationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rcNameTextView"
@@ -37,8 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:text="Resource Center Location"
-                android:id="@+id/rcLocationTextView"
+                android:text="Resource Center Website"
+                android:id="@+id/rcWebsiteTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

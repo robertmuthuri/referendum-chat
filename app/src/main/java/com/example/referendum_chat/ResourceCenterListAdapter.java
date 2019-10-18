@@ -1,17 +1,46 @@
 package com.example.referendum_chat;
 
 import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ResourceCenterListAdapter extends RecyclerView.Adapter<ResourceCenterListAdapter.ResourceCenterViewHolder> {
     private List<ResourceCenter> mResourceCenters;
     private Context mContext;
 
     public ResourceCenterListAdapter(Context context, List<ResourceCenter> resourceCenters) {
-        mResourceCenters = resourceCenters;
         mContext = context;
+        mResourceCenters = resourceCenters;
+    }
+    public class ResourceCenterViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.rcImageView) ImageView mRcImageView;
+        @BindView(R.id.rcNameTextView) TextView mRcNameTextView;
+        @BindView(R.id.rcLocationTextView) TextView mRcLocationTextView;
+        @BindView(R.id.rcWebsiteTextView) TextView mRcWebsiteTextView;
+
+        private Context mContext;
+
+        public ResourceCenterViewHolder (View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            mContext = itemView.getContext();
+        }
+
+        public void bindResourceCenter(ResourceCenter resourceCenter) {
+            Picasso.get().load(resourceCenter.getImageUrl()).into(mRcImageView);
+            mRcNameTextView.setText(resourceCenter.getName());
+            mRcLocationTextView.setText(resourceCenter.getLocation());
+            mRcWebsiteTextView.setText(resourceCenter.getUrl());
+        }
     }
 }
