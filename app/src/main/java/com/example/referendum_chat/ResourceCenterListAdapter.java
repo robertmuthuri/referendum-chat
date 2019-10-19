@@ -1,7 +1,9 @@
 package com.example.referendum_chat;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +24,15 @@ public class ResourceCenterListAdapter extends RecyclerView.Adapter<ResourceCent
         mContext = context;
         mResourceCenters = resourceCenters;
     }
+    // onCreateViewHolder method
+    @Override
+    public ResourceCenterListAdapter.ResourceCenterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rc_list_item, parent, false);
+        ResourceCenterViewHolder resourceCenterViewHolder = new ResourceCenterViewHolder(view);
+        return resourceCenterViewHolder;
+    }
+
+
     public class ResourceCenterViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.rcImageView) ImageView mRcImageView;
         @BindView(R.id.rcNameTextView) TextView mRcNameTextView;
