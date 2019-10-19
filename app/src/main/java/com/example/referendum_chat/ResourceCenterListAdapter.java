@@ -25,13 +25,17 @@ public class ResourceCenterListAdapter extends RecyclerView.Adapter<ResourceCent
         mResourceCenters = resourceCenters;
     }
     // onCreateViewHolder method
-    @Override
-    public ResourceCenterListAdapter.ResourceCenterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override public ResourceCenterListAdapter.ResourceCenterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rc_list_item, parent, false);
         ResourceCenterViewHolder resourceCenterViewHolder = new ResourceCenterViewHolder(view);
         return resourceCenterViewHolder;
     }
-
+    // onBindViewHolder method
+    @Override public void onBindViewHolder(ResourceCenterListAdapter.ResourceCenterViewHolder holder, int position) {
+        holder.bindResourceCenter(mResourceCenters.get(position));
+    }
+    // getItemCount method
+    @Override public int getItemCount() { return mResourceCenters.size(); }
 
     public class ResourceCenterViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.rcImageView) ImageView mRcImageView;
