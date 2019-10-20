@@ -1,4 +1,4 @@
-package com.example.referendum_chat;
+package com.example.referendum_chat.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.referendum_chat.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

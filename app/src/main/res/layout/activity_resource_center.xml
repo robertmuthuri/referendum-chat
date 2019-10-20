@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".ResourceCenterActivity">
+    tools:context=".ui.ResourceCenterActivity">
 
     <Spinner
         android:id="@+id/resourceSpinner"
@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/resourceSpinner"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"/>
+        android:layout_marginTop="16dp"/>
 
 </RelativeLayout>

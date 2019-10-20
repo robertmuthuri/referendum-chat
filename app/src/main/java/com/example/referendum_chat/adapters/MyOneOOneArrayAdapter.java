@@ -1,4 +1,4 @@
-package com.example.referendum_chat;
+package com.example.referendum_chat.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

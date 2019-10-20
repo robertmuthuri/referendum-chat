@@ -1,4 +1,4 @@
-package com.example.referendum_chat;
+package com.example.referendum_chat.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.referendum_chat.R;
+import com.example.referendum_chat.models.ResourceCenter;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -37,6 +39,7 @@ public class ResourceCenterListAdapter extends RecyclerView.Adapter<ResourceCent
     // getItemCount method
     @Override public int getItemCount() { return mResourceCenters.size(); }
 
+    // ViewHolder
     public class ResourceCenterViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.rcImageView) ImageView mRcImageView;
         @BindView(R.id.rcNameTextView) TextView mRcNameTextView;

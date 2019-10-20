@@ -1,4 +1,4 @@
-package com.example.referendum_chat;
+package com.example.referendum_chat.network;
 
 import java.io.IOException;
 
@@ -9,8 +9,8 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.referendum_chat.Constants.GeoDB_API_KEY;
-import static com.example.referendum_chat.Constants.GeoDB_BASE_URL;
+import static com.example.referendum_chat.models.Constants.GeoDB_API_KEY;
+import static com.example.referendum_chat.models.Constants.GeoDB_BASE_URL;
 
 public class GeoDBClient {
     private static Retrofit retrofit = null;

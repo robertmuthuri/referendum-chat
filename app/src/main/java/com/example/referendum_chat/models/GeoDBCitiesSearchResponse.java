@@ -1,7 +1,11 @@
 
-package com.example.referendum_chat;
+package com.example.referendum_chat.models;
 
 import java.util.List;
+
+import com.example.referendum_chat.models.Datum;
+import com.example.referendum_chat.models.Link;
+import com.example.referendum_chat.models.Metadata;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

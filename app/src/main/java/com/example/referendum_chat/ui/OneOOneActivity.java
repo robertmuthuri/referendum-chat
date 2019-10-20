@@ -1,17 +1,17 @@
-package com.example.referendum_chat;
+package com.example.referendum_chat.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
+import com.example.referendum_chat.adapters.MyOneOOneArrayAdapter;
+import com.example.referendum_chat.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

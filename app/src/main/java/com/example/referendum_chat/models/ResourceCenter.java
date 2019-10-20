@@ -1,25 +1,25 @@
-package com.example.referendum_chat;
+package com.example.referendum_chat.models;
 
 import java.util.Objects;
 
 public class ResourceCenter {
-    private String imageUrl;
+    private int imageUrl;
     private String name;
     private String location;
     private String url;
 
-    public ResourceCenter(String imageUrl, String name, String location, String url) {
+    public ResourceCenter(int imageUrl, String name, String location, String url) {
         this.imageUrl = imageUrl;
         this.name = name;
         this.location = location;
         this.url = url;
     }
 
-    public String getImageUrl() {
+    public int getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(int imageUrl) {
         this.imageUrl = imageUrl;
     }
 
