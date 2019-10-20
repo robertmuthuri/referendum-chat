@@ -41,6 +41,13 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
     private ResourceCenterListAdapter mResourceCenterListAdapter;
     public List<ResourceCenter> resourceCenters = new ArrayList<>();
     ResourceCenter cipit = new ResourceCenter(R.drawable.cipit_logo,"Center for Intellectual Property and Information Technology", "https://goo.gl/maps/4UVcThYGBbqdmagR7", "https://cipit.org/");
+    ResourceCenter kictaNet = new ResourceCenter(R.drawable.kictanet_logo, "Kenya ICT Action Network", "https://www.kictanet.or.ke/?page_id=28888", "https://www.kictanet.or.ke/");
+    ResourceCenter iHub = new ResourceCenter(R.drawable.ihub_logo, "iHub Kenya", "6th Floor, Senteu Plaza, Galana / Lenana Road Junction, Nairobi Kenya.", "https://ihub.co.ke/");
+    ResourceCenter uraia = new ResourceCenter(R.drawable.uraia_logo, "Uraia","https://goo.gl/maps/v5YxJfSXccMJ6FEQ8","https://uraia.or.ke/");
+    ResourceCenter katibaInstitutte = new ResourceCenter(R.drawable.katiba_logo, "Katiba Institute", "Off Arwings Kodhek Road, Hurlingham, Rose Ave, Nairobi", "https://www.katibainstitute.org/");
+    ResourceCenter knchr = new ResourceCenter(R.drawable.knchr_logo, "Kenya National Commission on Human Rights", "Ist Floor,CVS Plaza,Lenana Road, P.O Box 74359-00200, Nairobi", "https://www.knchr.org/");
+    ResourceCenter khrc = new ResourceCenter(R.drawable.khrc_logo, "Kenya Human Rights Commission", "Gitanga Road opp. Valley Arcade Shopping Center,\n" +
+            "P.O Box 41079-00100, Nairobi, Kenya", "https://www.khrc.or.ke/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +86,21 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
 //                    mResourceSpinner.setPrompt("Select your City");
                     ArrayAdapter citiesAdapter = new ArrayAdapter(ResourceCenterActivity.this, android.R.layout.simple_list_item_1, cities);
                     mResourceSpinner.setAdapter(citiesAdapter);
+
+                    resourceCenters.add(cipit);
+                    resourceCenters.add(kictaNet);
+                    resourceCenters.add(iHub);
+                    resourceCenters.add(uraia);
+                    resourceCenters.add(katibaInstitutte);
+                    resourceCenters.add(knchr);
+                    resourceCenters.add(khrc);
+
+                    // Associate adapter with recycler view
+                    mResourceCenterListAdapter = new ResourceCenterListAdapter(ResourceCenterActivity.this, resourceCenters);
+                    mRecyclerView.setAdapter(mResourceCenterListAdapter);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ResourceCenterActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
                 }
             }
 
@@ -100,15 +122,6 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
 //            Log.e("Image tagged", "image set: " + mCenterImageView);
 //            mCenterTextView.setText("Cipit");
 //            Log.e("text set", "text set: " + mCenterTextView);
-            resourceCenters.add(cipit);
-            resourceCenters.add(cipit);
-
-            // Associate adapter with recycler view
-            mResourceCenterListAdapter = new ResourceCenterListAdapter(ResourceCenterActivity.this, resourceCenters);
-            mRecyclerView.setAdapter(mResourceCenterListAdapter);
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ResourceCenterActivity.this);
-            mRecyclerView.setLayoutManager(layoutManager);
-            mRecyclerView.setHasFixedSize(true);
 
         }
     }
