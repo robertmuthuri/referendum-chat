@@ -17,7 +17,7 @@
         android:textSize="40sp" />
 
     <TextView
-        android:text="Go to Web"
+        android:text="Consult Chapter 16: Amendment of the Constitution"
         android:id="@+id/refWebsiteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/oneOOneHeader"
+        android:layout_below="@id/refWebsiteTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         />
