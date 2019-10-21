@@ -33,7 +33,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textStyle="italic"
-            android:drawableLeft="@drawable/ic_map_white_24dp"
+            android:drawableRight="@drawable/ic_map_white_24dp"
             android:background="@color/primary_light"
             android:drawablePadding="4dp"
             android:gravity="center_vertical"/>

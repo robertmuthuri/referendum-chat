@@ -35,6 +35,13 @@ public class ResourceCenterListAdapter extends RecyclerView.Adapter<ResourceCent
     // onBindViewHolder method
     @Override public void onBindViewHolder(ResourceCenterListAdapter.ResourceCenterViewHolder holder, int position) {
         holder.bindResourceCenter(mResourceCenters.get(position));
+        // Set on click listener to itemView
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                if (v == mRcWebsiteTextView)
+            }
+        });
     }
     // getItemCount method
     @Override public int getItemCount() { return mResourceCenters.size(); }

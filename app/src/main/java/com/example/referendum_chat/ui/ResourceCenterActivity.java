@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.referendum_chat.models.GeoDBCitiesSearchResponse;
 import com.example.referendum_chat.R;
@@ -28,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ResourceCenterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class ResourceCenterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
     @BindView(R.id.resourceSpinner) Spinner mResourceSpinner;
 //    @BindView(R.id.kenyanCitiesListView) ListView mKenyanCitiesListView;
 //    @BindView(R.id.rcImageView) ImageView mCenterImageView;
@@ -36,6 +39,11 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
 //    @BindView(R.id.rcLocationTextView) TextView mCenterLocationTextView;
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+
+    @BindView(R.id.rcLocationTextView) TextView mLocationLabel;
+    @BindView(R.id.rcWebsiteTextView) TextView mWebLabel;
+
+    private ResourceCenter mResourceCenter;
 
     // Instantiate adapter
     private ResourceCenterListAdapter mResourceCenterListAdapter;
@@ -54,6 +62,9 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resource_center);
         ButterKnife.bind(this);
+
+        mLocationLabel.setOnClickListener(this);
+        mWebLabel.setOnClickListener(this);
 
     // Create an ArrayAdapter using the string array and a default spinner layout.
 //    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.kenyan_towns_array, android.R.layout.simple_spinner_item);
@@ -84,8 +95,8 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
                         cities[i] = datumList.get(i).getName();
                     }
 //                    mResourceSpinner.setPrompt("Select your City");
-                    ArrayAdapter citiesAdapter = new ArrayAdapter(ResourceCenterActivity.this, android.R.layout.simple_list_item_1, cities);
-                    mResourceSpinner.setAdapter(citiesAdapter);
+//                    ArrayAdapter citiesAdapter = new ArrayAdapter(ResourceCenterActivity.this, android.R.layout.simple_list_item_1, cities);
+//                    mResourceSpinner.setAdapter(citiesAdapter);
 
                     resourceCenters.add(cipit);
                     resourceCenters.add(kictaNet);

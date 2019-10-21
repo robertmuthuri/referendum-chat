@@ -16,6 +16,20 @@
         android:textColor="@color/primary_text"
         android:textSize="40sp" />
 
+    <TextView
+        android:text="Go to Web"
+        android:id="@+id/refWebsiteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/oneOOneHeader"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/colorAccent"
+        android:drawableRight="@drawable/ic_exit_to_app_white_24dp"
+        android:drawablePadding="4dp"
+        android:background="@color/primary_light"
+        android:gravity="center_vertical"/>
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
