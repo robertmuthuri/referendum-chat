@@ -28,3 +28,4 @@ The following steps would therefore be sufficient to run the program for now:
 ### License
 This work is licensed by CC Share Alike.
 Copyright (c) 2019
+![](LICENSE.txt)
