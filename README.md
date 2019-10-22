@@ -25,5 +25,5 @@ The following steps would therefore be sufficient to run the program for now:
 * Extract the archive in the directory to the appropriate directory.
 * Open the project using your preferred editor.
 
-### License
-!(LICENSE.txt)
+## License
+![MIT](LICENSE.txt)
