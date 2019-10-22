@@ -26,6 +26,4 @@ The following steps would therefore be sufficient to run the program for now:
 * Open the project using your preferred editor.
 
 ### License
-This work is licensed by CC Share Alike.
-Copyright (c) 2019
 ![MIT](LICENSE.txt)
