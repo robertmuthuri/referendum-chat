@@ -26,4 +26,4 @@ The following steps would therefore be sufficient to run the program for now:
 * Open the project using your preferred editor.
 
 ### License
-![MIT](LICENSE.txt)
+!(LICENSE.txt)
