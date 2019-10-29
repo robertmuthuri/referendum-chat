@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "445523143292",
+    "firebase_url": "https://referendumchat-cad0d.firebaseio.com",
+    "project_id": "referendumchat-cad0d",
+    "storage_bucket": "referendumchat-cad0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445523143292:android:ebb1e83cd561bde82137f9",
+        "android_client_info": {
+          "package_name": "com.example.referendum_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445523143292-3n78ui36lsfgdp39dbb33r9vnn2rtb3a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.referendum_chat",
+            "certificate_hash": "e4de6aa0e351d261f00505a18fcb952061c57831"
+          }
+        },
+        {
+          "client_id": "445523143292-adq1f6ti8cdglsiblg9ba8e25sk3ivaj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr2l7_XiYp3G9UWRd5dPmWpJD1ULOqUSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445523143292-adq1f6ti8cdglsiblg9ba8e25sk3ivaj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

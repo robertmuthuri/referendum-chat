@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -49,4 +48,18 @@ dependencies {
     implementation 'com.rapidapi:rapidconnect-android:0.1'
     // Recycler view
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    // Firebase ui
+    implementation 'com.firebaseui:firebase-ui-database:4.3.1'
+    // Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'
+    // add SDKs for any other desired Firebase products.
+    //https://firebase.google.com/docs/android/setup#available-libraries
+    implementation 'com.google.firebase:firebase-core:17.2.1'
+    // Realtime Firebase dependency
+    implementation 'com.google.firebase:firebase-database:19.2.0'
+    // Firebase authentication
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
 }
+
+apply plugin: 'com.google.gms.google-services'
+

@@ -79,7 +79,6 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
         mEditor = mSharedPreferences.edit();
         mResourceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // An item was selected, you can retrieve the selected item using
@@ -98,11 +97,8 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
 //            Log.e("text set", "text set: " + mCenterTextView);
                 }
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parent) { }
         });
 
         // Set relative Url parameters
