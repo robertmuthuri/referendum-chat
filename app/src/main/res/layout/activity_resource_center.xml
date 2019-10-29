@@ -27,7 +27,7 @@
 
     <TextView
         android:text="Find a Resource Center Near you"
-        android:id="@+id/rcsubHeader"
+        android:id="@+id/rcSubHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -40,7 +40,7 @@
         android:id="@+id/resourceSpinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rcsubHeader"/>
+        android:layout_below="@id/rcSubHeader"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

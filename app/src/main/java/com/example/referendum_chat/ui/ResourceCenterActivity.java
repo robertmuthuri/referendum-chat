@@ -94,9 +94,9 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
                     for (int i = 0; i < cities.length; i++) {
                         cities[i] = datumList.get(i).getName();
                     }
-//                    mResourceSpinner.setPrompt("Select your City");
-//                    ArrayAdapter citiesAdapter = new ArrayAdapter(ResourceCenterActivity.this, android.R.layout.simple_list_item_1, cities);
-//                    mResourceSpinner.setAdapter(citiesAdapter);
+                    mResourceSpinner.setPrompt("Select your City");
+                    ArrayAdapter citiesAdapter = new ArrayAdapter(ResourceCenterActivity.this, android.R.layout.simple_list_item_1, cities);
+                    mResourceSpinner.setAdapter(citiesAdapter);
 
                     resourceCenters.add(cipit);
                     resourceCenters.add(kictaNet);
