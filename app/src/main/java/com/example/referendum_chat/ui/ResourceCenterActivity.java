@@ -139,7 +139,7 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
                     resourceCenters.add(khrc);
 
                     // Add resource centers to db
-                    ref.child("Resource Centers").setValue(resourceCenters);
+                    ref.child("Resource Centers").push().setValue(resourceCenters);
 
                     // Associate adapter with recycler view
                     mResourceCenterListAdapter = new ResourceCenterListAdapter(ResourceCenterActivity.this, resourceCenters);
