@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.referendum_chat.Constants;
 import com.example.referendum_chat.models.GeoDBCitiesSearchResponse;
 import com.example.referendum_chat.R;
 import com.example.referendum_chat.models.ResourceCenter;
@@ -32,6 +35,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ResourceCenterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private static final String TAG = "ResourceCenterActivity";
     @BindView(R.id.resourceSpinner) Spinner mResourceSpinner;
 //    @BindView(R.id.kenyanCitiesListView) ListView mKenyanCitiesListView;
 //    @BindView(R.id.rcImageView) ImageView mCenterImageView;
@@ -44,6 +48,7 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
 //    @BindView(R.id.rcWebsiteTextView) TextView mWebLabel;
 
     private ResourceCenter mResourceCenter;
+    private String mRecentAddress;
 
     // Instantiate adapter
     private ResourceCenterListAdapter mResourceCenterListAdapter;
@@ -57,23 +62,48 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
     ResourceCenter khrc = new ResourceCenter(R.drawable.khrc_logo, "Kenya Human Rights Commission", "Gitanga Road opp. Valley Arcade Shopping Center,\n" +
             "P.O Box 41079-00100, Nairobi, Kenya", "https://www.khrc.or.ke/");
 
+    // add member variables to store reference and edit it.
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
+    // add variable to hold selected city
+    private  static String location;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resource_center);
         ButterKnife.bind(this);
 
-//        mLocationLabel.setOnClickListener(this);
-//        mWebLabel.setOnClickListener(this);
+       mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+        mResourceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-    // Create an ArrayAdapter using the string array and a default spinner layout.
-//    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.kenyan_towns_array, android.R.layout.simple_spinner_item);
 
-        // Specify the layout to use when the list of choices appears
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        // mResourceSpinner.setAdapter(adapter);
-//        mResourceSpinner.setOnItemSelectedListener(this);
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // An item was selected, you can retrieve the selected item using
+                location = String.valueOf(parent.getItemAtPosition(position));
+                addToSharedPreferences(location);
+                // retrieve shared preference
+                mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+                Log.d(TAG, mRecentAddress);
+//        Log.e("Item Selected", "onItemSelected: " + parent.getItemAtPosition(pos));
+                String city = parent.getItemAtPosition(position).toString();
+                Log.e("Item Selected", "onItemSelected: " + city);
+                if (city.equals("Nairobi")) {
+//            Picasso.get().load(R.drawable.cipit_logo).into(mCenterImageView);
+//            Log.e("Image tagged", "image set: " + mCenterImageView);
+//            mCenterTextView.setText("Cipit");
+//            Log.e("text set", "text set: " + mCenterTextView);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         // Set relative Url parameters
         GeoDBApiInterface client = GeoDBClient.getClient();
@@ -94,9 +124,9 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
                     for (int i = 0; i < cities.length; i++) {
                         cities[i] = datumList.get(i).getName();
                     }
-                    mResourceSpinner.setPrompt("Select your City");
                     ArrayAdapter citiesAdapter = new ArrayAdapter(ResourceCenterActivity.this, android.R.layout.simple_list_item_1, cities);
                     mResourceSpinner.setAdapter(citiesAdapter);
+                    mResourceSpinner.setPrompt("Select your City");
 
                     resourceCenters.add(cipit);
                     resourceCenters.add(kictaNet);
@@ -123,21 +153,13 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
     }
     // Define the selection event handler for the spinner with the corresponding callback method.
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        // An item was selected, you can retrieve the selected item using
-//        parent.getItemAtPosition(pos);
-//        Log.e("Item Selected", "onItemSelected: " + parent.getItemAtPosition(pos));
-        String city = parent.getItemAtPosition(pos).toString();
-        Log.e("Item Selected", "onItemSelected: " + city);
-        if (city.equals("Nairobi")) {
-//            Picasso.get().load(R.drawable.cipit_logo).into(mCenterImageView);
-//            Log.e("Image tagged", "image set: " + mCenterImageView);
-//            mCenterTextView.setText("Cipit");
-//            Log.e("text set", "text set: " + mCenterTextView);
 
-        }
     }
-
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback.
+    }
+    // Method to add to shared preferences, takes city as argument.
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 }
