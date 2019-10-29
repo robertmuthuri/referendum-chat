@@ -1,6 +1,7 @@
 package com.example.referendum_chat.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,9 +11,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -49,9 +54,6 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
 //    @BindView(R.id.rcLocationTextView) TextView mLocationLabel;
 //    @BindView(R.id.rcWebsiteTextView) TextView mWebLabel;
 
-    private ResourceCenter mResourceCenter;
-    private String mRecentAddress;
-
     // Instantiate adapter
     private ResourceCenterListAdapter mResourceCenterListAdapter;
     public List<ResourceCenter> resourceCenters = new ArrayList<>();
@@ -67,6 +69,7 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
     // add member variables to store reference and edit it.
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
+    private String mRecentAddress;
 
     // add variable to hold selected city
     private  static String location;
@@ -167,4 +170,26 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
     private void addToSharedPreferences(String location) {
         mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
+
+    // inflate the menu search layout and retrieve search view
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        return true;
+    }
+    // ensure parent class functionality applies despite manually overriding portiong of the menu functionality.
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
 }
