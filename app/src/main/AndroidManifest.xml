@@ -11,16 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.CreateAccountActivity"></activity>
+        <activity android:name=".ui.LoginActivity"></activity>
+        <activity android:name=".ui.CreateAccountActivity" />
         <activity android:name=".ui.ResourceCenterActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.referendum_chat.ui.MainActivity"></meta-data>
+                android:value="com.example.referendum_chat.ui.MainActivity" />
         </activity>
         <activity android:name=".ui.OneOOneActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.referendum_chat.ui.MainActivity"></meta-data>
+                android:value="com.example.referendum_chat.ui.MainActivity" />
         </activity>
         <activity
             android:name=".ui.MainActivity"
