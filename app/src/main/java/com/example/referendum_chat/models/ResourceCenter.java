@@ -15,6 +15,8 @@ public class ResourceCenter {
         this.url = url;
     }
 
+    public ResourceCenter() { }
+
     public int getImageUrl() {
         return imageUrl;
     }

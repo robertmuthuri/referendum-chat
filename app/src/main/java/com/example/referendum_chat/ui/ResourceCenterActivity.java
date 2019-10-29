@@ -24,6 +24,8 @@ import com.example.referendum_chat.adapters.ResourceCenterListAdapter;
 import com.example.referendum_chat.models.Datum;
 import com.example.referendum_chat.network.GeoDBApiInterface;
 import com.example.referendum_chat.network.GeoDBClient;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +70,10 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
 
     // add variable to hold selected city
     private  static String location;
+
+    // add db reference
+    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference ref = mDatabase.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +137,9 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
                     resourceCenters.add(katibaInstitutte);
                     resourceCenters.add(knchr);
                     resourceCenters.add(khrc);
+
+                    // Add resource centers to db
+                    ref.child("Resource Centers").setValue(resourceCenters);
 
                     // Associate adapter with recycler view
                     mResourceCenterListAdapter = new ResourceCenterListAdapter(ResourceCenterActivity.this, resourceCenters);
