@@ -110,6 +110,9 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
             public void onNothingSelected(AdapterView<?> parent) { }
         });
 
+        getCities();
+    }
+    private void getCities() {
         // Set relative Url parameters
         GeoDBApiInterface client = GeoDBClient.getClient();
         String countryIds = "ke";
