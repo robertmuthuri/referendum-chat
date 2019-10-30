@@ -45,6 +45,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         mCreateUserButton.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
+        createAuthStateListener();
     }
     @Override
     public void onClick(View view) {
@@ -56,7 +57,6 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         }
         if (view == mCreateUserButton) {
             createNewUser();
-            createAuthStateListener();
         }
     }
     // create a new user
@@ -93,7 +93,21 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                     finish();
                 }
             }
-
         };
     }
+    // Add authListener to the Firebase authentication object in the lifecycle onStart and onStop methods.
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
 }
