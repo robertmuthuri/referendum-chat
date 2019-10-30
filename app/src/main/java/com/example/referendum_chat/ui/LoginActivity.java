@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.spark.submitbutton.SubmitButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static final String TAG = LoginActivity.class.getSimpleName();
 
     @BindView(R.id.registerTextView) TextView mRegisterTextView;
-    @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
+    @BindView(R.id.passwordLoginButton) SubmitButton mPasswordLoginButton;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
 
@@ -56,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
         };
-        createAuthProgressDialog();
+//        createAuthProgressDialog();
     }
 
     @Override
@@ -83,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
         // show progress dialog
-        mAuthProgressDialog.show();
+//        mAuthProgressDialog.show();
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -91,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         // dismiss progress dialog
-                        mAuthProgressDialog.dismiss();
+//                        mAuthProgressDialog.dismiss();
 
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful()) {
@@ -101,7 +102,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
-
     }
     // attach authentication state listener to start and stop lifecycle methods.
     @Override

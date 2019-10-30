@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.referendum_chat.ui.LoginActivity"
     android:background="@color/colorAccent">
 
@@ -43,15 +43,22 @@
             android:padding="10dp"
             android:nextFocusDown="@id/passwordEditText"/>
 
-        <Button
-            android:text="Log in"
+        <com.spark.submitbutton.SubmitButton
             android:id="@+id/passwordLoginButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="59dp"
+            android:layout_marginTop="50dp"
             android:background="@color/colorAccent"
-            android:textColor="@color/common_google_signin_btn_text_dark"
             android:padding="10dp"
-            android:layout_marginTop="15dp"/>
+            android:text="Log in"
+            android:textColor="@color/colorPrimaryDark"
+            app:sub_btn_background="@color/white"
+            app:sub_btn_duration="3000"
+            app:sub_btn_line_color="#1abc9c"
+            app:sub_btn_ripple_color="#1abc9c"
+            app:sub_btn_tick_color="@color/white"
+            android:layout_gravity="center_horizontal"
+            />
 
         <TextView
             android:text="Don't have an account? Sign up here!"
@@ -60,7 +67,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/common_google_signin_btn_text_dark"
             android:textStyle="bold"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
