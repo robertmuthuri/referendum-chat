@@ -16,6 +16,13 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
+        <ImageView
+            android:id="@+id/userPhoto"
+            android:src="@drawable/henrik_hansen"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"/>
         <EditText
             android:hint="Name"
             android:id="@+id/nameEditText"
