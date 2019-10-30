@@ -76,6 +76,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.2.0'
     // Firebase authentication
     implementation 'com.google.firebase:firebase-auth:19.1.0'
+    // Decorator dependency
+    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.2'
 }
 
 apply plugin: 'com.google.gms.google-services'

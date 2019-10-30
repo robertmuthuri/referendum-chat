@@ -2,14 +2,14 @@ package com.example.referendum_chat.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -21,7 +21,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.referendum_chat.Constants;
 import com.example.referendum_chat.models.GeoDBCitiesSearchResponse;
@@ -40,6 +39,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -251,6 +251,18 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
                             }).show();
                     break;
             }
+        }
+    // Decorator
+    @Override
+    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+        new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                .addSwipeLeftBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark))
+                .addSwipeLeftActionIcon(R.drawable.ic_delete_black_40dp)
+                .addSwipeRightBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.common_google_signin_btn_text_dark_default))
+                .addSwipeRightActionIcon(R.drawable.ic_archive_black_40dp)
+                .create()
+                .decorate();
+            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
         }
     };
 }
