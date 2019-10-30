@@ -1,7 +1,9 @@
 package com.example.referendum_chat.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +31,7 @@ import com.example.referendum_chat.adapters.ResourceCenterListAdapter;
 import com.example.referendum_chat.models.Datum;
 import com.example.referendum_chat.network.GeoDBApiInterface;
 import com.example.referendum_chat.network.GeoDBClient;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -44,19 +47,12 @@ import retrofit2.Response;
 public class ResourceCenterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String TAG = "ResourceCenterActivity";
     @BindView(R.id.resourceSpinner) Spinner mResourceSpinner;
-//    @BindView(R.id.kenyanCitiesListView) ListView mKenyanCitiesListView;
-//    @BindView(R.id.rcImageView) ImageView mCenterImageView;
-//    @BindView(R.id.rcNameTextView) TextView mCenterTextView;
-//    @BindView(R.id.rcLocationTextView) TextView mCenterLocationTextView;
-
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
-
-//    @BindView(R.id.rcLocationTextView) TextView mLocationLabel;
-//    @BindView(R.id.rcWebsiteTextView) TextView mWebLabel;
 
     // Instantiate adapter
     private ResourceCenterListAdapter mResourceCenterListAdapter;
     public List<ResourceCenter> resourceCenters = new ArrayList<>();
+
     ResourceCenter cipit = new ResourceCenter(R.drawable.cipit_logo,"Center for Intellectual Property and Information Technology", "https://goo.gl/maps/4UVcThYGBbqdmagR7", "https://cipit.org/");
     ResourceCenter kictaNet = new ResourceCenter(R.drawable.kictanet_logo, "Kenya ICT Action Network", "https://www.kictanet.or.ke/?page_id=28888", "https://www.kictanet.or.ke/");
     ResourceCenter iHub = new ResourceCenter(R.drawable.ihub_logo, "iHub Kenya", "6th Floor, Senteu Plaza, Galana / Lenana Road Junction, Nairobi Kenya.", "https://ihub.co.ke/");
@@ -111,6 +107,9 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
         });
 
         getCities();
+        // call item touch helper
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
     private void getCities() {
         // Set relative Url parameters
@@ -208,4 +207,50 @@ public class ResourceCenterActivity extends AppCompatActivity implements Adapter
         return super.onOptionsItemSelected(item);
     }
 
+    // swipe gesture
+    List<ResourceCenter> archivedCenters = new ArrayList<>();
+    ResourceCenter deleteCenter = null;
+
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            final int position = viewHolder.getAdapterPosition();
+            switch (direction) {
+                case ItemTouchHelper.LEFT:
+                    deleteCenter = resourceCenters.get(position);
+                    resourceCenters.remove(position);
+                    mResourceCenterListAdapter.notifyItemRemoved(position);
+                    Snackbar.make(mRecyclerView, "Resource Center Archived", Snackbar.LENGTH_LONG)
+                            .setAction("Undo", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    resourceCenters.add(position, deleteCenter);
+                                    mResourceCenterListAdapter.notifyItemInserted(position);
+                                }
+                            }).show();
+                    break;
+                case ItemTouchHelper.RIGHT:
+                    final ResourceCenter center = resourceCenters.get(position);
+                    archivedCenters.add(center);
+
+                    resourceCenters.remove(position);
+                    mResourceCenterListAdapter.notifyItemRemoved(position);
+                    Snackbar.make(mRecyclerView, "Resource Center Archived", Snackbar.LENGTH_LONG)
+                            .setAction("Undo", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    archivedCenters.remove(archivedCenters.lastIndexOf(center));
+                                    resourceCenters.add(position, center);
+                                    mResourceCenterListAdapter.notifyItemInserted(position);
+                                }
+                            }).show();
+                    break;
+            }
+        }
+    };
 }
