@@ -19,6 +19,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,8 +38,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
     private ProgressDialog mAuthProgressDialog;
+    private String mName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +68,14 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     }
     // create a new user
     private void createNewUser() {
-        final String name = mNameEditText.getText().toString().trim();
+        mName = mNameEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
         //call validation methods
         boolean validEmail = isValidEmail(email);
-        boolean validName = isValidName(name);
+        boolean validName = isValidName(mName);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
 
@@ -88,6 +91,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Authentication successful");
+//                            createFirebaseUserProfile(mAuth.getCurrentUser());
+                            createFirebaseUserProfile(task.getResult().getUser());
                         } else {
                             Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -117,7 +122,6 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
-
     @Override
     public void onStop() {
         super.onStop();
@@ -158,5 +162,20 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         mAuthProgressDialog.setTitle("Loading...");
         mAuthProgressDialog.setMessage("Authenticating with Firebase...");
         mAuthProgressDialog.setCancelable(false);
+    }
+    private void createFirebaseUserProfile(final FirebaseUser user) {
+        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mName)
+                .build();
+        user.updateProfile(addProfileName)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("FIREBASE", Objects.requireNonNull(user.getDisplayName()));
+                            Toast.makeText(CreateAccountActivity.this, "I'm Logged in as: "+mAuth.getCurrentUser().getDisplayName(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
     }
 }
